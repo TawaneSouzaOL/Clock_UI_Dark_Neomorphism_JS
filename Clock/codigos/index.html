@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Clock UI Dark</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="relogio">
+        <img src="/clock.png" class="clock">
+        <div class="horas">
+            <div class="hr" id="hr"></div>
+        </div>
+        <div class="minutos">
+            <div class="min" id="min"></div>
+        </div>
+        <div class="segundos">
+            <div class="seg" id="seg"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    const deg = 6;
+    const hr  = document.querySelector('#hr');
+    const min = document.querySelector('#min');
+    const seg = document.querySelector('#seg');
+
+    setInterval(() => {
+    let day = new Date();
+    let hh = day.getHours() * 30;
+    let mm = day.getMinutes() * deg;
+    let ss = day.getSeconds() * deg;
+
+    hr.style.transform  = `rotateZ(${(hh)+(mm/12)}deg)`;
+    min.style.transform = `rotateZ(${mm}deg)`;
+    seg.style.transform = `rotateZ(${ss}deg)`;
+    })
+
+    </script>
+</body>
+</html>
